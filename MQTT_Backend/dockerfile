@@ -1,0 +1,15 @@
+FROM node:latest
+
+#RUN apk update && apk add bash
+
+WORKDIR /MQTT_backend
+
+COPY ./package.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080 1883
+
+CMD [ "npm", "start" ]
